@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Консольный трекер расходов</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #f4f4f4; }
+        button { margin: 5px 0; padding: 8px 12px; font-family: inherit; cursor: pointer; }
+        input { padding: 8px; margin: 5px 0; width: 250px; font-family: inherit; }
+        hr { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h2>🧾 Трекер расходов (консоль + кнопки)</h2>
+    <p>Открой консоль (F12), чтобы видеть результаты выполнения команд.</p>
+
+    <div>
+        <h3>Добавить расход</h3>
+        <input type="text" id="titleInput" placeholder="название" value="Кофе">
+        <input type="number" id="amountInput" placeholder="сумма" value="150">
+        <input type="text" id="categoryInput" placeholder="категория" value="Еда">
+        <button onclick="addExpenseFromInput()">➕ Добавить</button>
+    </div>
+
+    <hr>
+
+    <div>
+        <button onclick="expenseTracker.printAllExpenses()">📋 Показать все расходы</button>
+        <button onclick="expenseTracker.getTotalAmount()">💰 Общая сумма</button>
+    </div>
+
+    <div>
+        <h3>Фильтр по категории</h3>
+        <input type="text" id="filterCategory" placeholder="категория (например, Еда)" value="Еда">
+        <button onclick="filterByCategory()">🔍 Показать расходы категории</button>
+    </div>
+
+    <div>
+        <h3>Поиск по названию</h3>
+        <input type="text" id="searchTitle" placeholder="часть названия" value="Кофе">
+        <button onclick="searchAndLog()">🔎 Найти первый</button>
+        <button onclick="searchAndAdd()">➕ Найти и добавить строку к описанию</button>
+    </div>
+
+    <div>
+        <h3>Удаление по ID</h3>
+        <input type="number" id="deleteId" placeholder="ID расхода" value="1">
+        <button onclick="deleteById()">🗑️ Удалить</button>
+    </div>
+
+    <div>
+        <button onclick="expenseTracker.printCategoryStats()">📊 Статистика по категориям</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
